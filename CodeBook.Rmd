@@ -1,0 +1,27 @@
+---
+title: "Code Book"
+author: "Christian Suarez"
+date: "19/11/2019"
+output: html_document
+---
+
+This Code book describes the steps that realizes the script "run_analysis.R" in order to create a tidy data set from the "Human Activity Recognition Using Smartphones Dataset - Version 1.0"
+
+1) Load "dplyr" package: which is the only package need it for this processing
+2) Get necessary files: first check if the files exists; if files exists do nothing on this step, else download them from 'https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip', and unzip them.
+3) Read the following files into DataFrames:
+      - features [561x2] List of all features.
+      - activities[6x2] Links the class labels with their activity name.
+      - subject_test[2947x1] subjects ids for each test record
+      - x_test[2947x561] Test set
+      - y_test[2947x1] Test labels
+      - subject_train[7352x1] subjects ids for each train record
+      - x_train[7352,561] Train set
+      - y_train[7352,1] Trai labels
+4) Concatenate activity id and activity name because some names are duplicated.
+5) Use list of feature to set column names to Test and Train Sets.
+6) Combine Test Set and Train Setthrough rbind(), then Labels and Subjects through cbind(). Data [10299,563]
+7) Select Mean and STDvariables, through Matches(Regular Expression). Data[10299,68]
+8) Set appropirate column names, replacing abbreviatures.
+9) Set describtive activity names through left join between Data and activities.
+10) Export Tidy Data Set as CSV, grouping by subject and activity summarizing by mean. "TidyHAR.csv"[180x68]
