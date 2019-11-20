@@ -91,5 +91,5 @@ Data<-select(Data,-activity.y)
 Data <- group_by(Data,activity,subject)
 Tidy<- summarise_all(Data,funs(mean))
 
-write.csv(Tidy,paste(getwd(),"TidyHAR.csv",sep="/"), 
+write.table(Tidy,paste(getwd(),"TidyHAR.txt",sep="/"), 
           row.names = FALSE)

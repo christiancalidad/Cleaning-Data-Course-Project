@@ -24,4 +24,4 @@ This Code book describes the steps that realizes the script "run_analysis.R" in 
 7) Select Mean and STDvariables, through Matches(Regular Expression). Data[10299,68]
 8) Set appropirate column names, replacing abbreviatures.
 9) Set describtive activity names through left join between Data and activities.
-10) Export Tidy Data Set as CSV, grouping by subject and activity summarizing by mean. "TidyHAR.csv"[180x68]
+10) Export Tidy Data Set as txt, grouping by subject and activity summarizing by mean. "TidyHAR.txt"[180x68]
